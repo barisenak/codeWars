@@ -5,10 +5,6 @@
 //If they are, return true. Else, return false. You can assume all values in the array are numbers.
 
 
-function smallEnough(a, limit){
-    let answer = true
-    a.forEach((item)=>{
-      item > limit ? answer = false : true
-    })
-    return answer
+  function smallEnough(arr, limit){
+    return !arr.filter( item => item > limit).length
   }
