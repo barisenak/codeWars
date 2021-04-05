@@ -5,8 +5,10 @@
 function highAndLow(numbers){
     
     let arr = numbers.split(" ").sort((a,b)=> b-a)
-    arr.length !== 1 ? arr.splice(1, arr.length-2) : arr.push(arr[0])
-    return arr.join(" ")
+    return [
+        arr[0], 
+        arr[arr.length - 1]
+      ].join(" ")
       
 }
 
