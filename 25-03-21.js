@@ -6,14 +6,14 @@
 
 
 function duplicateEncode(word){
-    let result = {}
-    let arr = word.toLowerCase().split("")
-    arr.forEach((item)=>{
-      result[item] ? result[item]++ : result[item] = 1
-    })
-    return arr.map((item)=>{
-      return result[item] == 1 ? "(" : ")"
-    }).join("")
+  let arr = word.toLowerCase().split("")
+  let obj = arr.reduce((prev, item)=> ({
+    ...prev,
+    [item]: arr.filter(el => el === item).length
+  }),{})
+  return arr.map((item)=>{
+    return obj[item] === 1 ? "(" : ")"
+  }).join("")
 }
 
 //2
