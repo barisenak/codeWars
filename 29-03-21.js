@@ -7,20 +7,11 @@
 
 let arr = ['james', 'james', 'john']
 
-function count(array){
-    let obj = {}
-    array.forEach((item)=>{
-    if (obj[item] > 0){
-    obj.item = obj[item]++
-    } else {
-    obj[item] = 1
-    }
-    })
-    console.log(obj)
-    delete obj.item
-    return obj
-}
+function count(array) {
+    return array.reduce((acc, item) => ({
+      ...acc,
+      [item]: array.filter(el => el === item).length,
+    }), {});
+   }
 
 count(arr)
-
-
