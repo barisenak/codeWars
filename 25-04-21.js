@@ -20,15 +20,13 @@ const input = [
 //
 
 const func = (input) => {
-  return input.reduce((prev, item) => {
-    return (
-      {
-        ...prev,
-        [item.id]: input.filter((el) => el.id === item.id).length,
-      },
-      {}
-    );
-  });
+  return input.reduce((acc, item, index) => {
+    if (acc[item.id]) return acc;
+    return {
+      ...acc,
+      [item.id]: input.filter((el) => el.id === item.id).length,
+    };
+  }, {});
 };
 
 func(input); // returns {output}
